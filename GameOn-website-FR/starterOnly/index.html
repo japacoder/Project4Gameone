@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8" />
+    <title>Reservation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+  </head>
+  
+  <body>
+    
+    <div class="topnav" id="myTopnav">
+      <div class="header-logo">
+      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+    </div>
+    
+    <div class="main-navbar">
+      
+      <a href="#" class="active"><span>Accueil</span></a>
+      <a href="#"><span>Détails de l'évènement</span></a>
+      <a href="#"><span>À propos</span></a>
+      <a href="#"><span>Contact</span></a>
+      <a href="#"><span>Évènements passés</span></a>
+      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    </div>
+  </div>
+    
+  <main>
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            Marathon national<br>
+            de jeux vidéos
+          </h1>
+          
+          <p class="hero-text">
+            Vous aimez jouer ? Notre prochain évènement gaming est ouvert
+            aux réservations... Places limitées !
+          </p>
+
+          <button class="btn-signup modal-btn">
+            je m'inscris
+          </button>
+        </div>
+        
+        <div class="hero-img">
+          <img src="./bg_img.jpg" alt="img" />
+        </div>
+        
+        <button class="btn-signup modal-btn">
+          je m'inscris
+        </button>
+      </div>
+
+      <div class="bground">
+        <div class="content">
+          <span class="close"></span>
+          
+          <!-- Vendredi 3 janvier 2025 class modal-body utlisée dans le fichier modal.js -->
+          <div class="modal-body">
+
+        <form id="myForm" name="reserve" method="get">
+
+      <div class="formData">
+        <!-- l'attribut "for" dans le label pour l'associer à l'input -->
+        <label for="first">Prénom</label><br>
+    <!-- Ajout de l'attribut "required" pour rendre le champ obligatoire-->
+        <input class="text-control" type="text" id="first" name="first"  />
+    <!-- description pour l'erreur -->
+      <div id="errorFirst" role="alert" aria-live="polite"></div><br>
+      </div>
+
+      <div class="formData">
+                <!-- pour associer le label à l'input avec l'attribut "for" -->
+        <label for="last">Nom</label><br>
+        <input class="text-control" type="text" id="last" name="last"  />
+                <!--  améliorer l'accessibilité du message d'erreur -->
+        <div id="errorLast" role="alert" aria-live="polite"></div><br>
+      </div>
+
+      <div class="formData">
+  <!-- Pour ssociele label à l'input avec l'attribut "for" -->
+        <label for="email">E-mail</label><br>
+        <input class="text-control" id="email" name="email"  />
+  <!-- pour améliorer l'accessibilité du message d'erreur -->
+      <div id="errorEmail" role="alert" aria-live="polite"></div>
+        <br>
+      </div>
+
+<div class="formData">
+    <!-- Associez le label à l'input avec l'attribut "for" -->
+    <label for="birthdate">Date de naissance</label><br>
+    <!-- Utilisez le type "date" pour un champ de saisie de date et ajoutez des validations supplémentaires si nécessaire -->
+    <input class="text-control" type="date" id="birthdate" name="birthdate" /> <!-- Vous pouvez définir une date minimale si nécessaire -->
+    <!-- Ajoutez des attributs pour améliorer l'accessibilité du message d'erreur -->
+    <div id="errorBirthdate" role="alert" aria-live="polite"></div>
+    <br>
+  </div>
+
+  <div class="formData">
+    <!-- Associez le label à l'input avec l'attribut "for" -->
+    <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+    <!-- Utilisation du type "number" avec des attributs pour limiter la saisie -->
+    <input type="number" class="text-control"  id="quantity" name="quantity" min="0" max="99" aria-describedby="quantityHelp" />
+    <!-- Optionnel : une petite description ou aide pour l'utilisateur (accessible via "aria-describedby") -->
+    <small id="quantityHelp" class="form-text text-muted">Veuillez saisir un nombre entre 0 et 99.</small>
+    <div id="errorNumber" role="alert" aria-live="polite"></div>
+    
+    <br>
+  </div>
+
+<p class="text-label" id="locationDescription">À quel tournoi souhaitez-vous participer cette année ?</p>
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location3">
+    <span class="checkbox-icon"></span>
+    Seattle
+  </label>
+</div>
+
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location1">
+    <span class="checkbox-icon"></span> 
+    New York
+  </label>
+</div>
+
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location2">
+    <span class="checkbox-icon"></span>
+    San Francisco
+  </label>
+</div>
+
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location3">
+    <span class="checkbox-icon"></span>
+    Seattle
+  </label>
+</div>
+
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location4">
+    <span class="checkbox-icon"></span>
+    Chicago
+  </label>
+</div>
+
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location5">
+    <span class="checkbox-icon"></span>
+    Boston
+  </label>
+</div>
+
+<div class="formData">
+  <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland" aria-describedby="locationDescription" />
+  <label class="checkbox-label" for="location6">
+    <span class="checkbox-icon"></span>
+    Portland
+  </label>
+</div>
+
+<div id="errorLocation"></div>
+
+<div class="formData">
+              <label for="checkbox1"> <input class="checkbox-input" type="checkbox" id="checkbox1" name="conditions" />
+                <div id="errorCondition" role="alert" aria-live="polite"></div>
+                <label class="checkbox2-label" for="checkbox1" required>
+                  <span class="checkbox-icon"></span>
+                  J'ai lu et accepté les conditions d'utilisation.
+                </label> <br>
+                
+                <label for="checkbox1"> <input class="checkbox-input" type="checkbox" id="checkbox2"  name="conditions"/>
+                <label class="checkbox2-label" for="checkbox2">
+                  <span class="checkbox-icon"></span>
+                  Je souhaite être prévenu des prochains évènements.
+                </label>
+<br>
+              </div> 
+
+              <input class="btn-submit button" type="submit"  value="C'est parti" />
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p class="copyrights">
+        Copyright 2014 - 2022, GameOn Inc.
+      </p>
+    </footer>
+    
+    <script src="modal.js"></script>
+  
+  </body>
+
+  </html>
