@@ -4,7 +4,7 @@
   --modal-duration: 0.8s;
 }
 * {
-  box-sizing: border-box;
+ /* box-sizing: border-box;  */
   margin: 0;
   padding: 0;
 }
@@ -184,6 +184,36 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*  Vendredi 11 avril 2025 pour le texte du modal "Merci pour votre inscription" */
+element.style {
+  margin-top: 105%;
+  font-size: 28px;
+  font-weight: 1000;
+  text-align: center;
+  /* width: 75%; */
+  padding: 0px 50px;
+  }
+  
+
+
+
+
+
+
+
+
+
 
 label {
   font-family: var(--font-default);
@@ -513,7 +543,7 @@ footer {
     text-align: center;
   }
 }
-
+/* Modal animation */
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -523,33 +553,28 @@ footer {
     opacity: 1;
   }
 }
-
-/* code mercredi 29 Janvier 2025 */
-
+  
 .formData {
   margin-bottom: 10px;
 }
-
+/* Style des messages d'erreur */
 .error-message {
   color: red;
   font-size: 0.9em;
   display: none; /* Caché par défaut */
 }
 
-/* code jeudi 30 Janvier 2025 */
-
-/*  .error-message {
-  color: red;
-  font-size: 14px;
-}
-
-
-
-
-/* Jeudi 27 février 2025 nouveau test   
-
-input[type="checkbox"] {
-  position: relative;
-  z-index: 10;
-  pointer-events: auto;
-} */
+/*  Début nouveau codé pour le bodyModal vendredi le 4 avril 2025  */
+#bodyModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+   height: 100%; /* Ajustez selon la taille du modal */
+  }
+  
+  #confirmationMessage {
+  white-space: pre-line; /* Permet les sauts de ligne */
+  }
+  
+/*  Fin nouveau codé pour le bodyModal vendredi le 4 avril 2025  */

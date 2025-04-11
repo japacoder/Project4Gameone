@@ -107,7 +107,7 @@
     <!-- Associez le label à l'input avec l'attribut "for" -->
     <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
     <!-- Utilisation du type "number" avec des attributs pour limiter la saisie -->
-    <input type="number" class="text-control"  id="quantity" name="quantity" min="0" max="99" aria-describedby="quantityHelp" />
+    <input type="number" class="text-control"  id="quantity" name="quantity" aria-describedby="quantityHelp" />
     <!-- Optionnel : une petite description ou aide pour l'utilisateur (accessible via "aria-describedby") -->
     <small id="quantityHelp" class="form-text text-muted">Veuillez saisir un nombre entre 0 et 99.</small>
     <div id="errorNumber" role="alert" aria-live="polite"></div>
@@ -175,22 +175,43 @@
 <div id="errorLocation"></div>
 
 <div class="formData">
-              <label for="checkbox1"> <input class="checkbox-input" type="checkbox" id="checkbox1" name="conditions" />
+              
+                
                 <div id="errorCondition" role="alert" aria-live="polite"></div>
-                <label class="checkbox2-label" for="checkbox1" required>
+                <input class="checkbox-input" type="checkbox" id="checkbox1" name="conditions" />
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label> <br>
                 
-                <label for="checkbox1"> <input class="checkbox-input" type="checkbox" id="checkbox2"  name="conditions"/>
+                 
+                  <input class="checkbox-input" type="checkbox" id="checkbox2"  name="conditions"/>
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
                 </label>
-<br>
+                  <br>
               </div> 
-
-              <input class="btn-submit button" type="submit"  value="C'est parti" />
+              
+              
+              <!-- Début nouveau codé vendredi 4 avril 2025 pour le bodyModal 
+              
+              
+              <div id="bodyModal">
+                <p id="confirmationMessage">Merci pour <br>votre inscription</p>
+            </div>
+            
+            Fin nouveau codé vendredi 4 avril 2025 pour le bodyModal -->
+              
+              
+              
+              
+              
+              
+              
+              
+              <!--  nouveau <input class="btn-submit button" type="submit"  value="C'est parti" onclick="myFunction()" />-->
+              <input class="btn-submit button" type="submit"  value="C'est parti" /> 
             </form>
           </div>
           

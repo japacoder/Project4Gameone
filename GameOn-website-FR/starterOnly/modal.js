@@ -49,6 +49,7 @@ function validateForm() {
   let pErrorNom = document.createElement('p')
   if (name === "" || name.length < 2) { 
    pErrorNom.style.color = "red";
+   pErrorNom.style.fontSize = "small";
     errorMessage = "Le nom est obligatoire ou il doit être supérieur à 2 caractères.\n";
     errorName.innerHTML='';
     pErrorNom.textContent = errorMessage;
@@ -58,11 +59,22 @@ function validateForm() {
     errorName.innerHTML = "";
   }
   
+  // vérifier si la date de naissance est valide et si l'utilisateur est majeur
   // Vérifie si le champ date de naissance est vide et affiche un message d'erreur en rouge si c'est le cas, sinon il supprime le message d'erreur existant
-  if (birthdate == "") { 
-  let pErrorBirth = document.createElement('p') // Crée un élément p pour afficher le message d'erreur
-  let errorBirth = document.getElementById("errorBirthdate");  // Récupère l'élément avec l'id errorBirthdate et le stocke dans la variable errorBirth
+// Affiche la différence entre la date actuelle et la date de naissance saisie dans la console pour le débogage
+ let pErrorBirth = document.createElement('p') // Crée un élément p pour afficher le message d'erreur
+ let errorBirth = document.getElementById("errorBirthdate");  // Récupère l'élément avec l'id errorBirthdate et le stocke dans la variable errorBirth
+ let dateAujourdhui = new Date();
+ let dateSelectionnee = new Date(birthdate);
+ dateAujourdhui.setHours(0, 0, 0, 0);
+ dateSelectionnee.setHours(0,0,0,0);
+
+ let diff = dateAujourdhui.getFullYear() - dateSelectionnee.getFullYear();
+ console.log("difference ", diff)
+  if (birthdate == "" || diff < 18 ||  diff > 77) { 
+
     pErrorBirth.style.color = "red";
+    pErrorBirth.style.fontSize = "small";
     errorBirth.innerHTML='';
     errorMessage = "La date de naissance est obligatoire.\n";
     pErrorBirth.textContent = errorMessage;
@@ -77,6 +89,7 @@ function validateForm() {
   let errorPrename = document.getElementById("errorFirst");
   if (prenom === "" || prenom.length < 2) { 
     pErrorPrenom.style.color = "red";
+    pErrorPrenom.style.fontSize = "small";
     errorMessage = "Le prenom est obligatoire.\n";
     errorPrename.innerHTML='';
     pErrorPrenom.textContent = errorMessage;
@@ -90,8 +103,10 @@ function validateForm() {
   let pErrorEmail = document.createElement('p')
   let errorMail= document.getElementById("errorEmail");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;  //  emailRegex : code pour vérifier si l'adresse email est valide par exp s'il manque @ l'emil ne pourra pas être validée. jeudi 20 février 2025
+  
   if (!emailRegex.test(email)) { 
     pErrorEmail.style.color = "red";
+    pErrorEmail.style.fontSize = "small";
     errorMessage = "L'e-mail est obligatoire.\n";
     errorMail.innerHTML='';
     pErrorEmail.textContent = errorMessage;    
@@ -104,9 +119,10 @@ function validateForm() {
 // Vérifie si le champ de saisie pour le nombre de tournois est vide et affiche un message d'erreur en rouge si c'est le cas, sinon il supprime le message d'erreur existant
 let pErrorNumber = document.createElement('p')
 let errorNumber = document.getElementById("errorNumber");
-  if (number === "") {
+  if (number === "" || number < 0 || number > 99) {
    pErrorNumber.style.color = "red";
-    errorMessage = "Le nombre de tournois est obligatoire.\n";
+   pErrorNumber.style.fontSize = "small";
+    errorMessage = "Le nombre de tournois est obligatoire. Ou doit être compris entre 0 et 99 inclus\n";
     errorNumber.innerHTML='';
     pErrorNumber.textContent = errorMessage;
     errorNumber.appendChild(pErrorNumber);
@@ -123,6 +139,7 @@ let errorNumber = document.getElementById("errorNumber");
   if (!selectedLocation) {
     errorDiv.textContent = "Veuillez sélectionner un tournoi.";
     errorDiv.style.color = "red"; // Affiche le message d'erreur en rouge
+    errorDiv.style.fontSize = "small";
     displayError = true;  // Affiche le message d'erreur
   } else {
     errorDiv.textContent = "";  // Efface le message d'erreur
@@ -137,18 +154,58 @@ let errorNumber = document.getElementById("errorNumber");
   let pErrorConditionG = document.createElement('p')
     pErrorConditionG.textContent = "Veuillez valider les conditions d'utilisation";
     pErrorConditionG.style.color = 'red'  // Affiche le message d'erreur en rouge
+    pErrorConditionG.style.fontSize = "small";
     errorConditionG.appendChild(pErrorConditionG) //  Affiche le message d'erreur
     displayError = true; 
   }
+
+
+
+
+
+//  document.getElementById('confirmationMessage').innerHTML = "Merci pour<br>votre inscription";
+
 // Si aucune erreur n'est détectée, un message de confirmation est affiché
   if(!displayError){
     const bodyModal = document.querySelector(".modal-body");  // Récupère le contenu de la fenêtre modale
     bodyModal.innerHTML = '';  // Efface le contenu de la fenêtre modale
     const message = document.createElement('p');   // Crée un élément p pour afficher le message de confirmation
-    message.textContent = "Merci de votre inscription"  // Affiche le message de confirmation
+    message.textContent = "Merci pour votre\ninscription"; // message.textContent  Affiche le message de confirmation
+    message.style.marginTop = '105%'   // 50%
+    message.style.fontSize = '28px'
+    message.style.fontWeight = '1000' // 300 Définit la taille de la police du message
+    message.style.textAlign = 'center'
+    message.style.width = '75%'
+
+    const btnClose = document.createElement('button');
+    btnClose.textContent = 'Fermer'
+    btnClose.classList.add("btn-submit")
+    btnClose.classList.add("button")
+
+    btnClose.addEventListener("click", closeModal)
+    message.style.padding = "0px 50px 0px 50px";
     bodyModal.appendChild(message);  // Ajoute le message de confirmation à la fenêtre modale
+    bodyModal.style.height = "100%"; // Code Mardi 1er avril 2025 Ajuste la hauteur de la fenêtre modale
+    bodyModal.style.display = 'flex'
+    bodyModal.style.flexDirection = "column"
+    bodyModal.style.justifyContent = 'center'; // 
+          // bodyModal.style.lineHeight = "center";     Code Mardi 1er avril 2025 Centre le texte du message de confirmation
+    btnClose.style.marginTop = "130%"; //  90%    765px Code Mardi 1er avril 2025 Pour agrandir la modale.
+    bodyModal.appendChild(btnClose)
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 //  Ecoute les soumissions du formulaire et appelle la fonction validateForm 
 // pour valider les données saisies par l'utilisateur
 document.addEventListener("DOMContentLoaded", function () {  
