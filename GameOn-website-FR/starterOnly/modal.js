@@ -185,12 +185,12 @@ let errorNumber = document.getElementById("errorNumber");
     btnClose.addEventListener("click", closeModal)
     message.style.padding = "0px 50px 0px 50px";
     bodyModal.appendChild(message);  // Ajoute le message de confirmation à la fenêtre modale
-    bodyModal.style.height = "100%"; // Code Mardi 1er avril 2025 Ajuste la hauteur de la fenêtre modale
+    bodyModal.style.height = "90vh"; // Code Mardi 1er avril 2025 Ajuste la hauteur de la fenêtre modale
     bodyModal.style.display = 'flex'
     bodyModal.style.flexDirection = "column"
     bodyModal.style.justifyContent = 'center'; // 
           // bodyModal.style.lineHeight = "center";     Code Mardi 1er avril 2025 Centre le texte du message de confirmation
-    btnClose.style.marginTop = "130%"; //  90%    765px Code Mardi 1er avril 2025 Pour agrandir la modale.
+    btnClose.style.marginTop = "85%"; //  90%    765px Code Mardi 1er avril 2025 Pour agrandir la modale.
     bodyModal.appendChild(btnClose)
   }
 }
