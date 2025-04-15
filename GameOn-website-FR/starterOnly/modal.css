@@ -185,16 +185,6 @@ main {
   margin: 15px auto;
 }
 
-
-
-
-
-
-
-
-
-
-
 /*  Vendredi 11 avril 2025 pour le texte du modal "Merci pour votre inscription" */
 element.style {
   margin-top: 105%;
@@ -205,16 +195,6 @@ element.style {
   padding: 0px 50px;
   }
   
-
-
-
-
-
-
-
-
-
-
 label {
   font-family: var(--font-default);
   font-size: 17px;
