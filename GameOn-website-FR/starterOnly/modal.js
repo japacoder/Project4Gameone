@@ -159,12 +159,6 @@ let errorNumber = document.getElementById("errorNumber");
     displayError = true; 
   }
 
-
-
-
-
-//  document.getElementById('confirmationMessage').innerHTML = "Merci pour<br>votre inscription";
-
 // Si aucune erreur n'est détectée, un message de confirmation est affiché
   if(!displayError){
     const bodyModal = document.querySelector(".modal-body");  // Récupère le contenu de la fenêtre modale
@@ -194,17 +188,6 @@ let errorNumber = document.getElementById("errorNumber");
     bodyModal.appendChild(btnClose)
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 //  Ecoute les soumissions du formulaire et appelle la fonction validateForm 
 // pour valider les données saisies par l'utilisateur
