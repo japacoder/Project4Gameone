@@ -339,6 +339,7 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+  /* margin-bottom: 30px; */
 }
 /* custom select styles */
 .custom-select {

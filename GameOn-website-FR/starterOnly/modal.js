@@ -69,7 +69,7 @@ function validateForm() {
  dateAujourdhui.setHours(0, 0, 0, 0);
  dateSelectionnee.setHours(0,0,0,0);
 
- let diff = dateAujourdhui.getFullYear() - dateSelectionnee.getFullYear();
+ let diff = dateAujourdhui.getFullYear() - dateSelectionnee.getFullYear();  
  console.log("difference ", diff)
   if (birthdate == "" || diff < 18 ||  diff > 77) { 
 
@@ -96,7 +96,7 @@ function validateForm() {
     errorPrename.appendChild(pErrorPrenom);
     displayError = true;
   }else{
-    errorPrename.innerHTML = "";
+    errorPrename.innerHTML = "";  
   }
 
   // Vérifie si le champ email est vide ou si l'email saisi est invalide et si c'est le cas, il affiche un message d'erreur en rouge
@@ -105,8 +105,8 @@ function validateForm() {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;  //  emailRegex : code pour vérifier si l'adresse email est valide par exp s'il manque @ l'emil ne pourra pas être validée. jeudi 20 février 2025
   
   if (!emailRegex.test(email)) { 
-    pErrorEmail.style.color = "red";
-    pErrorEmail.style.fontSize = "small";
+    pErrorEmail.style.color = "red"; 
+    pErrorEmail.style.fontSize = "small";  
     errorMessage = "L'e-mail est obligatoire.\n";
     errorMail.innerHTML='';
     pErrorEmail.textContent = errorMessage;    
@@ -120,12 +120,12 @@ function validateForm() {
 let pErrorNumber = document.createElement('p')
 let errorNumber = document.getElementById("errorNumber");
   if (number === "" || number < 0 || number > 99) {
-   pErrorNumber.style.color = "red";
-   pErrorNumber.style.fontSize = "small";
+   pErrorNumber.style.color = "red"; 
+   pErrorNumber.style.fontSize = "small";   
     errorMessage = "Le nombre de tournois est obligatoire. Ou doit être compris entre 0 et 99 inclus\n";
-    errorNumber.innerHTML='';
-    pErrorNumber.textContent = errorMessage;
-    errorNumber.appendChild(pErrorNumber);
+    errorNumber.innerHTML=''; 
+    pErrorNumber.textContent = errorMessage; 
+    errorNumber.appendChild(pErrorNumber); 
     displayError = true; // Affiche le message d'erreur en rouge si le nombre de tournois est vide   
   }else{
     errorNumber.innerHTML =""  // Efface le message d'erreur si le nombre de tournois est saisi    
@@ -149,14 +149,14 @@ let errorNumber = document.getElementById("errorNumber");
   //  sinon il supprime le message d'erreur existant
   const conditionG = document.getElementById("checkbox1");
   const errorConditionG = document.getElementById("errorCondition");
-  errorConditionG.innerHTML = "";
+  errorConditionG.innerHTML = "";  
   if(!conditionG.checked){
   let pErrorConditionG = document.createElement('p')
     pErrorConditionG.textContent = "Veuillez valider les conditions d'utilisation";
     pErrorConditionG.style.color = 'red'  // Affiche le message d'erreur en rouge
-    pErrorConditionG.style.fontSize = "small";
+    pErrorConditionG.style.fontSize = "small";  
     errorConditionG.appendChild(pErrorConditionG) //  Affiche le message d'erreur
-    displayError = true; 
+    displayError = true;    
   }
 
 // Si aucune erreur n'est détectée, un message de confirmation est affiché
@@ -165,27 +165,27 @@ let errorNumber = document.getElementById("errorNumber");
     bodyModal.innerHTML = '';  // Efface le contenu de la fenêtre modale
     const message = document.createElement('p');   // Crée un élément p pour afficher le message de confirmation
     message.textContent = "Merci pour votre\ninscription"; // message.textContent  Affiche le message de confirmation
-    message.style.marginTop = '105%'   // 50%
-    message.style.fontSize = '28px'
+    message.style.marginTop = '75%'   // Définit la marge supérieure du message
+    message.style.fontSize = '28px' // Définit la taille de la police du message
     message.style.fontWeight = '1000' // 300 Définit la taille de la police du message
-    message.style.textAlign = 'center'
-    message.style.width = '75%'
+    message.style.textAlign = 'center' // Centre le texte du message de confirmation
+    message.style.width = '75%' // Définit la largeur du message
 
-    const btnClose = document.createElement('button');
-    btnClose.textContent = 'Fermer'
-    btnClose.classList.add("btn-submit")
-    btnClose.classList.add("button")
+    const btnClose = document.createElement('button'); // Crée un bouton pour fermer la fenêtre modale
+    btnClose.textContent = 'Fermer' // Définit le texte du bouton
+    btnClose.classList.add("btn-submit") // Ajoute la classe btn-submit au bouton
+    btnClose.classList.add("button") // Ajoute la classe button au bouton
 
-    btnClose.addEventListener("click", closeModal)
-    message.style.padding = "0px 50px 0px 50px";
+    btnClose.addEventListener("click", closeModal) // Ajoute un écouteur d'événements pour fermer la fenêtre modale lorsque le bouton est cliqué
+    message.style.padding = "0px 50px 0px 50px"; // Définit le remplissage du message
     bodyModal.appendChild(message);  // Ajoute le message de confirmation à la fenêtre modale
-    bodyModal.style.height = "90vh"; // Code Mardi 1er avril 2025 Ajuste la hauteur de la fenêtre modale
-    bodyModal.style.display = 'flex'
-    bodyModal.style.flexDirection = "column"
-    bodyModal.style.justifyContent = 'center'; // 
+    bodyModal.style.height = "80vh"; // Ajuste la hauteur de la fenêtre modale
+    bodyModal.style.display = 'flex'; // Définit l'affichage de la fenêtre modale sur flex
+    bodyModal.style.flexDirection = "column";// Définit la direction du flex sur colonne
+    bodyModal.style.justifyContent = 'center'; // Centre le contenu de la fenêtre modale
           // bodyModal.style.lineHeight = "center";     Code Mardi 1er avril 2025 Centre le texte du message de confirmation
-    btnClose.style.marginTop = "85%"; //  90%    765px Code Mardi 1er avril 2025 Pour agrandir la modale.
-    bodyModal.appendChild(btnClose)
+    btnClose.style.marginTop = "80%"; // Espace entre le bouton Fermer et le bas de la modale .
+    bodyModal.appendChild(btnClose) // Ajoute le bouton Fermer à la fenêtre modale
   }
 }
 
